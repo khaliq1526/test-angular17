@@ -1,4 +1,4 @@
-<nz-table #basicTable [nzData]="users" [nzPageSize]="5">
+<nz-table #basicTable [nzData]="users" [nzPageSize]="5" *ngIf="users.length" ngSkipHydration>
     <thead>
       <tr>
         <th scope="col">ID</th>
