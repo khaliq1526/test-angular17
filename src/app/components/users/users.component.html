@@ -1,4 +1,4 @@
-<nz-table #basicTable [nzData]="users" [nzPageSize]="5" *ngIf="users.length">
+<nz-table #basicTable [nzData]="users" [nzPageSize]="5" *ngIf="users.length" ngSkipHydration>
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -10,15 +10,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor ="let user of basicTable.data">
-        <th scope="row">{{user.ID}}</th>
-        <td>{{user.NAME}}</td>
-        <td>{{user.MOBILE}}</td>
-        <td>{{user.CITY}}</td>
-        <td>{{user.EMAIL}}</td>
-        <td>{{user.STATUS}}</td>
+      <tr *ngFor="let user of basicTable.data">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.mobile}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.status}}</td>
       </tr>
     </tbody>
-  </nz-table>
+</nz-table>
 
   

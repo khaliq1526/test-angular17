@@ -72,8 +72,8 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 import { NzCodeEditorModule } from 'ng-zorro-antd/code-editor';
-//import { NzGraphModule } from 'ng-zorro-antd/graph';
-//import { NzCronExpressionModule } from 'ng-zorro-antd/cron-expression';
+// import { NzGraphModule } from 'ng-zorro-antd/graph';
+// import { NzCronExpressionModule } from 'ng-zorro-antd/cron-expression';
 import { NzQRCodeModule } from 'ng-zorro-antd/qr-code';
 import { NzWaterMarkModule } from 'ng-zorro-antd/water-mark';
 
@@ -95,7 +95,7 @@ import { NzWaterMarkModule } from 'ng-zorro-antd/water-mark';
     NzCheckboxModule,
     NzCollapseModule,
     NzCommentModule,
-    //NzCronExpressionModule,
+    // NzCronExpressionModule,
     NzDatePickerModule,
     NzDescriptionsModule,
     NzDividerModule,
@@ -151,11 +151,9 @@ import { NzWaterMarkModule } from 'ng-zorro-antd/water-mark';
     NzResizableModule,
     NzPipesModule,
     NzCodeEditorModule,
-    //NzGraphModule,
+    // NzGraphModule,
     NzQRCodeModule,
     NzWaterMarkModule
   ]
 })
-
-
 export class AntZorroModule { }
