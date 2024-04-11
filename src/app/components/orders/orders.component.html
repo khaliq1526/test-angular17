@@ -1,1 +1,22 @@
-<p>orders works!</p>
+
+<nz-table #basicTable [nzData] ="orders" *ngIf="orders.length" ngSkipHydration>
+ <thead>
+    <tr>
+     <th scope="col">orderID</th>
+     <th scope="col">userID</th> 
+     <th scope="col">orderDate</th> 
+     <th scope="col">totalAmount</th> 
+     <th scope="col">orderStatus</th>    
+    </tr>
+ </thead> 
+ <tbody>
+    <tr *ngFor = "let order of basicTable.data">
+     <th scope="row">{{order.orderID}}</th>
+     <td>{{order.userID}}</td>
+     <td>{{order.orderDate}}</td>
+     <td>{{order.totalAmount}}</td>
+     <td>{{order.orderStatus}}</td>
+    </tr>
+ </tbody>  
+
+</nz-table>

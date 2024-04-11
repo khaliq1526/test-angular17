@@ -1,1 +1,23 @@
-<p>products works!</p>
+
+<nz-Table #basicTable [nzData]="products" [ngPageSize]="5" *ngIf ="products.length" ngSkipHydration>
+       
+    <thead>
+        <tr>
+         <th scope="col">productId</th>   
+        <th scope="col">productName</th>
+        <th scope="col">description</th> 
+        <th scope="col">price</th>
+        <th scope="col">stock_quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor ="let product of basicTable.data">
+        <th scope ="row">{{product.productId}}</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.stock_quantity}}</td>
+     </tr>
+    </tbody>
+</nz-Table>
+

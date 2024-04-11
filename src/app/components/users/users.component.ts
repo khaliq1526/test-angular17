@@ -24,39 +24,6 @@ export class UsersComponent implements OnInit {
 
 
 
- users= [
-    { 
-      ID:1,
-      NAME:'Tom',
-      MOBILE:123,
-      CITY:'Houston',
-      EMAIL: '123@gmail.com',
-      STATUS: 'Active'
-  },
-  { 
-    ID:2,
-    NAME:'Harry',
-    MOBILE:456,
-    CITY:'Hamshpire',
-    EMAIL: '456@gmail.com',
-    STATUS: 'Pending'
-},
-{ 
-  ID:3,
-  NAME:'Monty',
-  MOBILE:789,
-  CITY:'Holland',
-  EMAIL: '789@gmail.com',
-  STATUS: 'Active'
-},
-{ 
-  ID:4,
-  NAME:'Johnny',
-  MOBILE:1011,
-  CITY:'Hungary',
-  EMAIL: '1011@gmail.com',
-  STATUS: 'Active'
-}
-]
+ 
 
 }
