@@ -1,0 +1,59 @@
+
+
+<form #productForm="ngForm">
+    <!-- <div class="form-group">
+        <label for="Id">ID:</label>
+        <input type="text" id="Id" name="ID" [(ngModel)]="formData.ID" required>
+      </div> -->
+  
+                  
+  
+    <div class="form-group">
+      <label for="productName">productName:</label>
+      <input
+        type="text"
+        id="productName"
+        name="productName"
+        [(ngModel)]="formData.productName"
+        required
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="description">description:</label>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        [(ngModel)]="formData.description"
+        required
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="price">price:</label>
+      <input
+        type="text"
+        id="price"
+        name="price"
+        [(ngModel)]="formData.price"
+        required
+      />
+    </div>
+  
+    <div class="form-group">
+      <label for="stock_quantity">stock_quantity:</label>
+      <input
+        type="stock_quantity"
+        id="stock_quantity"
+        name="stock_quantity"
+        [(ngModel)]="formData.stock_quantity"
+        required
+      />
+    </div>
+  
+    <button type="submit" (click)="submitProduct()" [disabled]="!productForm.valid">
+      Submit
+    </button>
+  </form>
+  

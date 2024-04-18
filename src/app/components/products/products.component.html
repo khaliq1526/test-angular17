@@ -1,23 +1,27 @@
 
-<nz-Table #basicTable [nzData]="products" [ngPageSize]="5" *ngIf ="products.length" ngSkipHydration>
-       
+  <nz-table #basicTable [nzData]="products" *ngIf="products.length" ngSkipHydration>
+  
     <thead>
-        <tr>
-         <th scope="col">productId</th>   
+      <tr>
+        <th scope="col">productId</th>
         <th scope="col">productName</th>
-        <th scope="col">description</th> 
+        <th scope="col">description</th>
         <th scope="col">price</th>
         <th scope="col">stock_quantity</th>
-        </tr>
+        <th scope="col">Delete</th>
+      </tr>
     </thead>
     <tbody>
-     <tr *ngFor ="let product of basicTable.data">
-        <th scope ="row">{{product.productId}}</th>
-        <td>{{product.productName}}</td>
-        <td>{{product.description}}</td>
-        <td>{{product.price}}</td>
-        <td>{{product.stock_quantity}}</td>
-     </tr>
+      <tr *ngFor="let product of basicTable.data">
+        <th scope="row">{{ product.productId }}</th>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock_quantity }}</td>
+        <td><button type="button" (click)="deleteByID(product.productId)">Delete</button> </td>
+      </tr>
     </tbody>
-</nz-Table>
+  </nz-table>
+  <button  routerLink="/addProduct">addProduct</button>
 
+<!-- {{ products | json }} -->

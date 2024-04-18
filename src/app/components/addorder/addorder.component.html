@@ -1,0 +1,58 @@
+
+
+<form #orderForm="ngForm">
+  <!-- <div class="form-group">
+      <label for="Id">ID:</label>
+      <input type="text" id="Id" name="ID" [(ngModel)]="formData.ID" required>
+    </div> -->
+
+  
+
+  <div class="form-group">
+    <label for="userID">userID:</label>
+    <input
+      type="text"
+      id="userID"
+      name="userID"
+      [(ngModel)]="formData.userID"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="orderDate">orderDate:</label>
+    <input
+      type="text"
+      id="orderDate"
+      name="orderDate"
+      [(ngModel)]="formData.orderDate"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="totalAmount">totalAmount:</label>
+    <input
+      type="text"
+      id="totalAmount"
+      name="totalAmount"
+      [(ngModel)]="formData.totalAmount"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="orderStatus">orderStatus:</label>
+    <input
+      type="orderStatus"
+      id="orderStatus"
+      name="orderStatus"
+      [(ngModel)]="formData.orderStatus"
+      required
+    />
+  </div>
+
+  <button type="submit" (click)="submitOrder()" [disabled]="!orderForm.valid">
+    Submit
+  </button>
+</form>

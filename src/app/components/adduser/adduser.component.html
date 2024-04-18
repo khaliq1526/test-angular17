@@ -1,0 +1,35 @@
+
+<form #userForm="ngForm" >
+    <!-- <div class="form-group">
+      <label for="Id">ID:</label>
+      <input type="text" id="Id" name="ID" [(ngModel)]="formData.ID" required>
+    </div> -->
+  
+    <div class="form-group">
+      <label for="name">NAME:</label>
+      <input type="text" id="name" name="NAME" [(ngModel)]="formData.NAME" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="mobile">MOBILE:</label>
+      <input type="text" id="mobile" name="MOBILE" [(ngModel)]="formData.MOBILE" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="city">CITY:</label>
+      <input type="text" id="city" name="CITY" [(ngModel)]="formData.CITY" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">EMAIL:</label>
+      <input type="email" id="email" name="EMAIL" [(ngModel)]="formData.EMAIL" required>
+    </div>
+  
+    <div class="form-group">
+      <label for="status">STATUS:</label>
+      <input type="text" id="status" name="STATUS" [(ngModel)]="formData.STATUS" required>
+    </div>
+  
+  
+    <button type="submit" (click)="submitUser()" [disabled]="!userForm.valid">Submit</button>
+  </form>

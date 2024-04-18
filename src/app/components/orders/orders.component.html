@@ -6,7 +6,8 @@
      <th scope="col">userID</th> 
      <th scope="col">orderDate</th> 
      <th scope="col">totalAmount</th> 
-     <th scope="col">orderStatus</th>    
+     <th scope="col">orderStatus</th>
+     <th scope="col">Delete</th>    
     </tr>
  </thead> 
  <tbody>
@@ -16,7 +17,10 @@
      <td>{{order.orderDate}}</td>
      <td>{{order.totalAmount}}</td>
      <td>{{order.orderStatus}}</td>
+     <td><button type ="button" (click)="deleteByID(order.orderID)">Delete</button> </td>
     </tr>
  </tbody>  
 
 </nz-table>
+
+<button type="submit" routerLink ="/addOrder">addorder</button>

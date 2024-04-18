@@ -18,4 +18,22 @@ export class UsersService {
       })
     );
   }
+
+  submitFormData(formData: any): Observable<any> {
+    return this.http.post<any>('http://localhost:5000/users', formData).pipe(
+      catchError(error => {
+        console.log('Error occured in submitFormData, error is ', error);
+        return of([]);
+      })
+    );
+  }
+
+  deleteByID(ID:String):Observable<any> {
+    return this.http.delete<any>('http://localhost:5000/users/'+ID).pipe(
+      catchError(error => {
+        console.log('Error occured in deleteBYID, error is ', error);
+        return of([]);
+      })
+    );
+  }
 }
