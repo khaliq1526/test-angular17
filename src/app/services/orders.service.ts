@@ -3,6 +3,7 @@ import { HttpClient , HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { error } from 'console';
+import configs from '../environments/env';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class OrdersService {
   
 
   getOrders(): Observable<any> {
-    return this.http.get('http://localhost:5000/orders').pipe(
+    return this.http.get(configs.apiURL+'orders').pipe(
       catchError(error => {
         console.log('Error occured in getOrders, error is ', error);
         return of([]);
@@ -22,7 +23,7 @@ export class OrdersService {
     );}
 
     addOrders(formData:any):Observable<any>{
-      return this.http.post<any>('http://localhost:5000/orders',formData).pipe(
+      return this.http.post<any>(configs.apiURL+'/orders',formData).pipe(
         catchError(error => {
           console.log('Error occured in addOrders, error is ', error);
           return of([]);
@@ -31,7 +32,7 @@ export class OrdersService {
     
     deleteBYID(orderID:String):Observable<any>{
 
-      return this.http.delete<any>('http://localhost:5000/orders/' +orderID).pipe(
+      return this.http.delete<any>(configs.apiURL+'/orders/' +orderID).pipe(
         catchError(error => {
           console.log('Error occured in addOrders, error is ', error);
           return of([]);

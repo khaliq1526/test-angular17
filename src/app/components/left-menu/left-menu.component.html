@@ -1,7 +1,28 @@
 <div class="left-menu">
-    <ul class="nav flex-column">
+    <ul nz-menu nzMode="inline">
+        <li nz-submenu nzTitle="Users" nzIcon="user">
+            <ul>
+                <li routerLink="/users" nz-menu-item>List of Users</li>
+            </ul>
+        </li>
+        <li nz-submenu nzTitle="Orders" nzIcon="align-right">
+            <ul>
+                <li routerLink="/orders" nz-menu-item>List of Orders</li>
+            </ul>
+        </li>
+
+        <li nz-submenu nzTitle="Products" nzIcon="appstore">
+            <ul>
+                <li routerLink="/products" nz-menu-item>List of Orders</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <!-- <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" routerLink="/users">Users</a>
+            <a class="nav-link active" 
+            ="/users">Users</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/orders">Orders</a>
@@ -9,5 +30,5 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/products">Products</a>
         </li>        
-    </ul>
+    </ul> -->
 </div>

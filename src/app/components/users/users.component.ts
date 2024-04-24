@@ -2,8 +2,9 @@ import { Component, OnInit, OnChanges,SimpleChanges} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../modules/shared.module';
 import { UsersService } from '../../services/users.service';
-
 import { RouterLink } from '@angular/router';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { AdduserComponent } from '../adduser/adduser.component';
 
 @Component({
   selector: 'app-users',
@@ -16,7 +17,7 @@ export class UsersComponent implements OnInit{
 
   users:any = [];
  
-  constructor(private userService: UsersService) {
+  constructor(private userService: UsersService, private modal: NzModalService) {
   }
 
   ngOnInit(): void {   
@@ -27,12 +28,14 @@ export class UsersComponent implements OnInit{
   deleteByID(id:String){
     this.userService. deleteByID(id).subscribe(response => {
       this.users = response;
-    });
-    
+    });    
   }
     
- 
-
- 
-
+  openUserModal() {
+    const modal = this.modal.create({
+      nzTitle: 'Add New User',
+      nzContent: AdduserComponent,
+      nzFooter: null
+    });
+  }
 }
