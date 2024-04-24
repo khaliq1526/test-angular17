@@ -28,8 +28,8 @@ export class UsersService {
     );
   }
 
-  deleteByID(ID:String):Observable<any> {
-    return this.http.delete<any>('http://localhost:5000/users/'+ID).pipe(
+  deleteByID(id:String):Observable<any> {
+    return this.http.delete<any>('http://localhost:5000/users/'+id).pipe(
       catchError(error => {
         console.log('Error occured in deleteBYID, error is ', error);
         return of([]);

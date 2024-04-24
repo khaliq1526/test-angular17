@@ -29,7 +29,7 @@ export class ProductsService {
     );}
 
   deleteByID(productId:String):Observable<any>{
-    return this.http.delete('http://localhost:5000/products/' +productId).pipe(
+    return this.http.delete('http://localhost:5000/products/'+productId).pipe(
       catchError(error=>{
         console.log("Error occured in deleteByID ,error is ",error);
         return of([]);

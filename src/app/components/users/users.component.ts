@@ -24,8 +24,8 @@ export class UsersComponent implements OnInit{
       this.users = response;
     }); 
   }
-  deleteByID(ID:String){
-    this.userService. deleteByID(ID).subscribe(response => {
+  deleteByID(id:String){
+    this.userService. deleteByID(id).subscribe(response => {
       this.users = response;
     });
     

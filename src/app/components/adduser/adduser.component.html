@@ -1,35 +1,94 @@
-
-<form #userForm="ngForm" >
-    <!-- <div class="form-group">
-      <label for="Id">ID:</label>
-      <input type="text" id="Id" name="ID" [(ngModel)]="formData.ID" required>
+<form #userForm="ngForm">
+  <!-- <div class="form-group">
+      <label for="id">id:</label>
+      <input type="text" id="Id" name="id" [(ngModel)]="formData.id" required>
     </div> -->
-  
-    <div class="form-group">
-      <label for="name">NAME:</label>
-      <input type="text" id="name" name="NAME" [(ngModel)]="formData.NAME" required>
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="formData.name"
+      required
+      nz-input placeholder="Enter Name"
+    />
+    
+  </div>
+
+  <div class="form-group">
+    <label for="mobile">Mobile:</label>
+    <input
+      type="text"
+      id="mobile"
+      name="mobile"
+      [(ngModel)]="formData.mobile"
+      pattern="[0-9]{10}"
+      required
+      nz-input placeholder="Enter Mobile"
+    />
+    <div *ngIf="!formData.mobile ">Mobile number is required</div>
+    <div
+      *ngIf="(formData.mobile?.length !== 10)">
+      Please enter a valid 10-digit mobile number.
     </div>
-  
-    <div class="form-group">
-      <label for="mobile">MOBILE:</label>
-      <input type="text" id="mobile" name="MOBILE" [(ngModel)]="formData.MOBILE" required>
+  </div>
+
+  <div class="form-group">
+    <label for="city">City:</label>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      [(ngModel)]="formData.city"
+      required
+      nz-input placeholder="Enter City"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <!-- <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="formData.email"
+      required
+      nz-input placeholder="Enter Email"
+    /> -->
+    <!-- <input type="email" name="email" [(ngModel)]="formData.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" nz-input placeholder="Enter Email">
+  <div *ngIf="!formData.email">Email is required.</div>
+  <div *ngIf="formData.email && userForm.submitted && userForm.controls['email'].errors">Please enter a valid email address.</div> -->
+  <input type="email" name="email" [(ngModel)]="formData.email" required email #email="ngModel" nz-input placeholder="Enter Email">
+    <div *ngIf="email.errors && (email.dirty || email.touched)">
+      <div *ngIf="email.errors['required']">Email is required.</div>
+      <div *ngIf="email.errors['email'] && !email.errors['required']">Invalid email format.</div>
     </div>
-  
-    <div class="form-group">
-      <label for="city">CITY:</label>
-      <input type="text" id="city" name="CITY" [(ngModel)]="formData.CITY" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="email">EMAIL:</label>
-      <input type="email" id="email" name="EMAIL" [(ngModel)]="formData.EMAIL" required>
-    </div>
-  
-    <div class="form-group">
-      <label for="status">STATUS:</label>
-      <input type="text" id="status" name="STATUS" [(ngModel)]="formData.STATUS" required>
-    </div>
-  
-  
-    <button type="submit" (click)="submitUser()" [disabled]="!userForm.valid">Submit</button>
-  </form>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <input
+      type="text"
+      id="status"
+      name="status"
+      [(ngModel)]="formData.status"
+      required
+      nz-input placeholder="Enter Status"
+    />
+  </div>
+
+  <!-- <button
+    type="submit"
+    (click)="submitUser(userForm.form.valid)"
+    [disabled]="!userForm.valid"
+  >
+    Submit
+  </button> -->
+  <button nz-button nzType="primary" (click)="submitUser(userForm.form.valid)"
+  [disabled]="!userForm.form.valid" [nzLoading]="isLoading">
+    <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+    Add User
+  </button>
+</form>

@@ -12,15 +12,15 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of basicTable.data">
-      <th scope="row">{{ user.ID }}</th>
-      <td>{{ user.NAME }}</td>
-      <td>{{ user.MOBILE }}</td>
-      <td>{{ user.CITY }}</td>
-      <td>{{ user.EMAIL }}</td>
-      <td>{{ user.STATUS }}</td>
-      <td><button type="button" (click)="deleteByID(user.ID)">Delete</button></td>
+      <th scope="row">{{ user._id }}</th>
+      <td>{{ user.name }}</td>
+      <td>{{ user.mobile}}</td>
+      <td>{{ user.city}}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.status }}</td>
+      <td><button type="button" (click)="deleteByID(user._id)">Delete</button></td>
     </tr>
   </tbody>
 </nz-table>
 
-<button routerLink="/addUser">addUser</button>
+<button routerLink="/addUser">add_User</button>

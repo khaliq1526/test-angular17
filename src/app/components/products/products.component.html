@@ -13,15 +13,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of basicTable.data">
-        <th scope="row">{{ product.productId }}</th>
+        <th scope="row">{{ product._id }}</th>
         <td>{{ product.productName }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.stock_quantity }}</td>
-        <td><button type="button" (click)="deleteByID(product.productId)">Delete</button> </td>
+        <td><button type="button" (click)="deleteByID(product._id)">Delete</button> </td>
       </tr>
     </tbody>
   </nz-table>
-  <button  routerLink="/addProduct">addProduct</button>
+  <button  routerLink="/addProduct">add_Product</button>
 
 <!-- {{ products | json }} -->

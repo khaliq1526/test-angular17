@@ -12,15 +12,15 @@
  </thead> 
  <tbody>
     <tr *ngFor = "let order of basicTable.data">
-     <th scope="row">{{order.orderID}}</th>
+     <th scope="row">{{order._id}}</th>
      <td>{{order.userID}}</td>
      <td>{{order.orderDate}}</td>
      <td>{{order.totalAmount}}</td>
      <td>{{order.orderStatus}}</td>
-     <td><button type ="button" (click)="deleteByID(order.orderID)">Delete</button> </td>
+     <td><button type ="button" (click)="deleteByID(order._id)">Delete</button> </td>
     </tr>
  </tbody>  
 
 </nz-table>
 
-<button type="submit" routerLink ="/addOrder">addorder</button>
+<button type="submit" routerLink ="/addOrder">add_Order</button>
