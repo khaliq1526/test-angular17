@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { AntZorroModule } from '../../modules/ant-zorro.module';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-adduser',
@@ -25,7 +26,9 @@ export class AdduserComponent {
     status:""
  }
 
-constructor(private usersService:UsersService,private route:Router){}
+constructor(private usersService:UsersService,
+            private route:Router,
+            private modalRef: NzModalRef){}
   
 submitUser(valid:boolean):any{
   if(!valid){
@@ -35,10 +38,13 @@ submitUser(valid:boolean):any{
   this.isLoading=true;
   this.usersService.submitFormData(this.formData).subscribe(response=>
       {
-        this.route.navigate(['/users']);
+        //this.route.navigate(['/users']);
+        this.modalRef.destroy(true);
       }
     )
-   }
+  }
 
-
+  handleCancel() {
+    this.modalRef.destroy(false);
+  }
 }

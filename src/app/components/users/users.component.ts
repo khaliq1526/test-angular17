@@ -21,9 +21,13 @@ export class UsersComponent implements OnInit{
   }
 
   ngOnInit(): void {   
+    this.getUsers();
+  }
+
+  getUsers() {
     this.userService.getUsers().subscribe(response => {
       this.users = response;
-    }); 
+    });
   }
   deleteByID(id:String){
     this.userService. deleteByID(id).subscribe(response => {
@@ -37,5 +41,9 @@ export class UsersComponent implements OnInit{
       nzContent: AdduserComponent,
       nzFooter: null
     });
+
+    modal.afterClose.subscribe(result => {
+      if(result) this.getUsers();
+    })
   }
 }

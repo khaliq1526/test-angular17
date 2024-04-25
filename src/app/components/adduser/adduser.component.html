@@ -79,16 +79,16 @@
     />
   </div>
 
-  <!-- <button
-    type="submit"
-    (click)="submitUser(userForm.form.valid)"
-    [disabled]="!userForm.valid"
-  >
-    Submit
-  </button> -->
-  <button nz-button nzType="primary" (click)="submitUser(userForm.form.valid)"
+  <div class="mt-3 border-border-dark p-3 text-center">
+    <button nz-button nzType="primary" (click)="submitUser(userForm.form.valid)"
   [disabled]="!userForm.form.valid" [nzLoading]="isLoading">
     <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
     Add User
   </button>
+
+  <button class="ms-2" nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+
+  </div>
+  
+  
 </form>
