@@ -1,27 +1,48 @@
-
-  <nz-table #basicTable [nzData]="products" *ngIf="products.length" ngSkipHydration>
-  
-    <thead>
-      <tr>
-        <th scope="col">productId</th>
-        <th scope="col">productName</th>
-        <th scope="col">description</th>
-        <th scope="col">price</th>
-        <th scope="col">stock_quantity</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of basicTable.data">
-        <th scope="row">{{ product._id }}</th>
-        <td>{{ product.productName }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.stock_quantity }}</td>
-        <td><button type="button" (click)="deleteByID(product._id)">Delete</button> </td>
-      </tr>
-    </tbody>
-  </nz-table>
-  <button  routerLink="/addProduct">add_Product</button>
+<div class="row">
+  <div class="col col-9">
+    <h2>List of Products:</h2>
+  </div>
+  <div class="col col-3 text-right">
+    <button nz-button nzType="primary" (click)="openProductModal()">
+      <span nz-icon nzType="plus-circle"></span>
+      Add New Product
+    </button>
+  </div>
+</div>
+<nz-table
+  #basicTable
+  [nzData]="products"
+  *ngIf="products.length"
+  ngSkipHydration
+>
+  <thead>
+    <tr>
+      <th scope="col">productId</th>
+      <th scope="col">productName</th>
+      <th scope="col">description</th>
+      <th scope="col">price</th>
+      <th scope="col">stock_quantity</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of basicTable.data">
+      <th scope="row">{{ product._id }}</th>
+      <td>{{ product.productName }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.stock_quantity }}</td>
+      <td>
+        <button nz-popconfirm
+        nzPopconfirmTitle="Are you sure delete this record?"
+        nzPopconfirmPlacement="bottom"
+        (nzOnConfirm)="deleteByID(product._id)"
+        nz-button nzType="primary" nzShape="circle">
+        <span nz-icon nzType="delete"></span>
+      </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
 
 <!-- {{ products | json }} -->

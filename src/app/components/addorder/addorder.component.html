@@ -9,13 +9,14 @@
   
 
   <div class="form-group">
-    <label for="serID">UserID:</label>
+    <label for="userID">UserID:</label>
     <input
       type="text"
       id="userID"
       name="userID"
       [(ngModel)]="formData.userID"
       required
+      nz-input placeholder="Enter userID"
     />
   </div>
 
@@ -27,6 +28,7 @@
       name="orderDate"
       [(ngModel)]="formData.orderDate"
       required
+      nz-input placeholder="Enter orderDate"
     />
   </div>
 
@@ -38,6 +40,7 @@
       name="totalAmount"
       [(ngModel)]="formData.totalAmount"
       required
+      nz-input placeholder="Enter totalAmount"
     />
   </div>
 
@@ -49,10 +52,18 @@
       name="orderStatus"
       [(ngModel)]="formData.orderStatus"
       required
+      nz-input placeholder="Enter orderStatus"
     />
   </div>
 
-  <button type="submit" (click)="submitOrder()" [disabled]="!orderForm.valid">
-    Submit
+  <div class="mt-3 border-border-dark p-3 text-center">
+    <button nz-button nzType="primary" (click)="submitOrder(orderForm.form.valid)"
+  [disabled]="!orderForm.form.valid" [nzLoading]="isLoading">
+    <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+    Add Order
   </button>
+
+  <button class="ms-2" nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+
+  </div>
 </form>

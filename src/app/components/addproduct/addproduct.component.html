@@ -16,6 +16,7 @@
         name="productName"
         [(ngModel)]="formData.productName"
         required
+        nz-input placeholder="Enter productName"
       />
     </div>
   
@@ -27,6 +28,7 @@
         name="description"
         [(ngModel)]="formData.description"
         required
+        nz-input placeholder="Enter description"
       />
     </div>
   
@@ -38,6 +40,7 @@
         name="price"
         [(ngModel)]="formData.price"
         required
+        nz-input placeholder="Enter Price"
       />
     </div>
   
@@ -49,11 +52,19 @@
         name="stock_quantity"
         [(ngModel)]="formData.stock_quantity"
         required
+        nz-input placeholder="Enter stock_quantity"
       />
     </div>
   
-    <button type="submit" (click)="submitProduct()" [disabled]="!productForm.valid">
-      Submit
+    <div class="mt-3 border-border-dark p-3 text-center">
+      <button nz-button nzType="primary" (click)="submitProduct(productForm.form.valid)"
+    [disabled]="!productForm.form.valid" [nzLoading]="isLoading">
+      <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
+      Add Product
     </button>
+  
+    <button class="ms-2" nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+  
+    </div>
   </form>
   

@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../modules/shared.module';
 import { OrdersService } from '../../services/orders.service';
 import { RouterLink } from '@angular/router';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { response } from 'express';
+import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { AddorderComponent } from '../addorder/addorder.component';
+
+
 
 @Component({
   selector: 'app-orders',
@@ -18,19 +19,36 @@ export class OrdersComponent implements OnInit {
 
   orders:any =[]
 
-  constructor(private ordersService:OrdersService,private http:HttpClient){
+  constructor(private ordersService:OrdersService,private modal:NzModalService){
 
   }
   ngOnInit(): void {   
-    this.ordersService.getOrders().subscribe(response => {
-      this.orders = response;
-    }); }
+    this.getOrders();
+    }; 
+
+    getOrders() {
+      this.ordersService.getOrders().subscribe(response => {
+        this.orders = response;
+      });
+    }
 
     deleteByID(orderID:String){
 
       return this.ordersService.deleteBYID(orderID).subscribe(response=>{
         this.orders=response;
       });}
+
+      openOrderModal() {
+        const modal = this.modal.create({
+          nzTitle: 'Add New Order',
+          nzContent: AddorderComponent,
+          nzFooter: null
+        });
+    
+        modal.afterClose.subscribe(result => {
+          if(result) this.getOrders();
+        })
+      }
 }
 
 

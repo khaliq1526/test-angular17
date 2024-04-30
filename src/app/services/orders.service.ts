@@ -15,7 +15,7 @@ export class OrdersService {
   
 
   getOrders(): Observable<any> {
-    return this.http.get(configs.apiURL+'orders').pipe(
+    return this.http.get(configs.apiURL+'/orders').pipe(
       catchError(error => {
         console.log('Error occured in getOrders, error is ', error);
         return of([]);
