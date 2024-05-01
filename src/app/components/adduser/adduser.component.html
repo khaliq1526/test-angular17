@@ -6,20 +6,20 @@
 
   <div class="form-group">
     <label for="name">Name:</label>
-    <!-- <input
+    <input
       type="text"
       id="name"
       name="name"
       [(ngModel)]="formData.name"
       required
       nz-input placeholder="Enter Name"
-    /> -->
-    <input type="text" name="formData.name" [(ngModel)]="formData.name" #nameInput="ngModel" required minlength="3" maxlength="50">
+    />
+    <!-- <input type="text" name="formData.name" [(ngModel)]="formData.name" #nameInput="ngModel" required minlength="3" maxlength="50">
 <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="alert alert-danger">
   <div *ngIf="nameInput.errors?.required">Name is required.</div>
   <div *ngIf="nameInput.errors?.minlength">Name must be at least 3 characters long.</div>
   <div *ngIf="nameInput.errors?.maxlength">Name cannot be more than 50 characters long.</div>
-</div>
+</div> -->
     
   </div>
 
