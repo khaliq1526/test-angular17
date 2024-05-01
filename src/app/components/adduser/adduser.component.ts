@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -13,17 +13,21 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
   templateUrl: './adduser.component.html',
   styleUrl: './adduser.component.scss'
 })
-export class AdduserComponent {
+export class AdduserComponent implements OnInit {
 
   showErrors:boolean = false;
-  isLoading:boolean= false;
-
-  formData:any= {
+  isLoading:boolean= false;    
   
+  formData:any = {  
     name:"",
     mobile:"",
     email:"",
     status:""
+ }
+
+ ngOnInit(): void {
+  if(this.usersService.editUserObj)
+    this.formData = this.usersService.editUserObj;
  }
 
 constructor(private usersService:UsersService,

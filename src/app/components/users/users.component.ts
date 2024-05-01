@@ -5,11 +5,12 @@ import { UsersService } from '../../services/users.service';
 import { RouterLink } from '@angular/router';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { AdduserComponent } from '../adduser/adduser.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, SharedModule,RouterLink],
+  imports: [CommonModule, SharedModule,RouterLink, DatePipe],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
 })
@@ -34,10 +35,15 @@ export class UsersComponent implements OnInit{
       this.users = response;
     });    
   }
+
+  openEditModal(user: any) {    
+    this.openUserModal(user);
+  }
     
-  openUserModal() {
-    const modal = this.modal.create({
-      nzTitle: 'Add New User',
+  openUserModal(user:any = null) {
+    this.userService.userObj = user ? {...user} : null;
+    let modal = this.modal.create({
+      nzTitle: user?._id ? 'Edit User': 'Add New User',
       nzContent: AdduserComponent,
       nzFooter: null
     });

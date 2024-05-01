@@ -15,22 +15,32 @@
   <thead class="thead-light">
     <tr>
       <th scope="col">ID</th>
+      <th scope="col">Create Date</th>
       <th scope="col">NAME</th>
       <th scope="col">MOBILE</th>
       <th scope="col">CITY</th>
       <th scope="col">EMAIL</th>
       <th scope="col">STATUS</th>
+      <th scope="col">Edit</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let user of basicTable.data">
-      <th scope="row">{{ user._id }}</th>
+      <th>{{ user._id }}</th>
+      <th>{{ user.createdAt | date: 'yyyy-MM-dd' }}</th>
       <td>{{ user.name }}</td>
       <td>{{ user.mobile}}</td>
       <td>{{ user.city}}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.status }}</td>
+      <td>
+        <button (click)="openEditModal(user)"
+          nz-button nzType="primary" nzShape="circle">
+          <span nz-icon nzType="edit"></span>
+        </button>
+
+      </td>
       <td>
         <button nz-popconfirm
           nzPopconfirmTitle="Are you sure delete this record?"

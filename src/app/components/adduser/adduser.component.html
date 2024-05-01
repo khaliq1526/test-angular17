@@ -95,7 +95,7 @@
     <button nz-button nzType="primary" (click)="submitUser(userForm.form.valid)"
   [disabled]="!userForm.form.valid" [nzLoading]="isLoading">
     <span nz-icon nzType="plus-circle" nzTheme="outline"></span>
-    Add User
+    {{formData._id ? 'Edit' : 'Add'}} User
   </button>
 
   <button class="ms-2" nz-button nzType="default" (click)="handleCancel()">Cancel</button>
